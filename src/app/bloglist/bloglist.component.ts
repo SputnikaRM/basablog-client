@@ -15,13 +15,14 @@ import { stringify } from 'querystring';
 
 export class BloglistComponent implements OnInit {
   filter:FilterPipe;
-  posts: Post[];
+  posts: Post[] = [];
   search : string;
   constructor(private blogService: BlogService,
     private route: ActivatedRoute
     ) {
   }
   ngOnInit() {
+    console.log("on init called");
     this.getBlogPostsDesc();
   }
 

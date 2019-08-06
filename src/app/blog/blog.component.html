@@ -7,24 +7,25 @@
     <div style="clear: both;"></div>
             <img class="card-img-top" src="{{post.imageURL || 'https://www.tigers-world.com/wp-content/uploads/Siberian_tiger-1.jpg' }}"  alt="post image">
         <div class="card-body">
+                <button class="btn btn-danger" type="button" (click)="deletePost()" >Delete</button>
             <p class="card-text">{{post.postText}}</p>
-            <!-- <h3 class="card-title">User: {{post.userId}}</h3> -->
         </div>
 </div>
 
 </div>
 <br>
+<div class="container-fluid" style="text-align:left">
+<div class="card text-left"style="width: 40rem; margin:0 auto;">
     <div *ngFor="let comment of comments">
-      <div class="card text-left"style="width: 40rem; margin:0 auto;">
-            <div class="module comment">
+        <div class="card" style="width: 40rem; margin:0 auto;">
               <div class="card-header text-muted">User: {{comment.userid}}</div>
               <div class="card-body">
                 {{comment.body}}
               </div>
             </div>
-       
         </div>
     </div>
 <br>
+</div>
 
 <app-addcomment post="post"></app-addcomment>

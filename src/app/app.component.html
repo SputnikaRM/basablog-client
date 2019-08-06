@@ -11,28 +11,32 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <div *ngIf="loginstatus">
+          <div *ngIf="getLoggedInStatus()">
           <a  class="nav-link" routerLink = 'addblog'>Add Blog</a>
         </div>
         </li>
-        <div *ngIf="!loginstatus">
+        <div *ngIf="!getLoggedInStatus()">
         <li class="nav-item">
           <a class="nav-link" routerLink= 'adduser'>Register</a>
         </li>
         </div>
       </ul>
+         
     </div>
-      <div>
+
+       <div>
           <span class="btn-group" >
             <button *ngIf="!getLoggedInStatus()" class="btn btn-info" type="button" routerLink='user'>Login</button>
-            <button *ngIf="getLoggedInStatus()" (click)="logout()" class="btn btn-danger" type="button" routerLink='app'>Logout</button>
+            <button *ngIf="getLoggedInStatus()" (click)="logout()" class="btn btn-info" type="button" routerLink='app'>Logout</button>
           </span>
           </div>
       <div *ngIf="!loginstatus">
           <span class="btn-group" >
-              <button class="btn btn-danger" type="button" routerLink='adduser'>Register</button>
+              <button class="btn btn-info" type="button" routerLink='adduser'>Register</button>
             </span>
-          </div>
+          </div> 
+
+      
   </nav>
 </div>
 

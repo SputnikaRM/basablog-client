@@ -11,6 +11,8 @@ export class BlogService {
   private blogposturl = environment.apiUrl + "blogPost/add";
   private bloggeturl =  environment.apiUrl + "blogPost/all";
   private postgeturl = environment.apiUrl + "blogPost/";
+  private postdeleteurl = environment.apiUrl + "blogPost/";
+
   
   constructor(private http:HttpClient) {}
 
@@ -32,5 +34,9 @@ export class BlogService {
 
   public findAllBlogPostsDesc(): Observable<Post[]> {
     return this.http.get<Post[]>(this.bloggeturl + "/reverse");
+  }
+
+  public deleteBlogPost(id : number): Observable<string> {
+    return this.http.delete<string>(this.postdeleteurl + id);
   }
 }

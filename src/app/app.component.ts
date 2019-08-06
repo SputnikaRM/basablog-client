@@ -3,6 +3,7 @@ import { User } from 'src/app/user';
 import {CookieService} from "ngx-cookie-service";
 import { BlogService } from './blog.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,8 +17,6 @@ export class AppComponent implements OnInit {
   blogService : BlogService;
   constructor( private cookservice: CookieService ) { }
   ngOnInit(){
-    
-    
 
   }
   userstatuschange(): boolean{
@@ -39,6 +38,6 @@ export class AppComponent implements OnInit {
   }
 
   goHome() : void {
-    this.blogService.findAllBlogPostsDesc();
+    window.location.pathname="/";
   }
 }

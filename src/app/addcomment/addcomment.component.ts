@@ -24,11 +24,10 @@ export class AddcommentComponent implements OnInit {
 
   onSubmit(){
     this.comment.postid = +this.route.snapshot.paramMap.get('id');
-    this.commentService.save(this.comment).subscribe(result => this.gotoUserList());
+    this.commentService.save(this.comment).subscribe();
+    window.location.pathname=`/post/${this.comment.postid}`;
   }
 
-  gotoUserList(){
-    this.router.navigate(['comments/add']);
-  }
+
 
 }
