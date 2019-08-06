@@ -14,22 +14,35 @@ import {AppComponent } from 'src/app/app.component';
 export class UserComponent implements OnInit {
   cookie: String;
   user: User;
+  returnUser:User;
   constructor(private userService: UserService, private route: ActivatedRoute, private router: Router,private cookieService:CookieService) {
     this.user = new User();
+    
   }
 
   ngOnInit() {
+    
+
+    
   }
 
   login(): void {
-    this.cookieService.set("name", "true");
+    
   }
 
   onSubmit() {
-    this.login();
-    console.log(this.cookieService.get("name"))
-    return this.userService.verifyUser(this.user).forEach(result => this.verify());
-
+    this.userService.verifyUser(this.user).subscribe(data => {this.returnUser = data;
+      console.log(this.returnUser);
+      if(this.returnUser!==null){
+      this.cookieService.set("name", "true");
+      };
+    }
+      );
+    console.log(this.returnUser);
+    
+    
+    
+    
   }
 
   verify() {

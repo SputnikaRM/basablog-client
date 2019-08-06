@@ -1,4 +1,5 @@
-Unzip  
+ZipShare  
+basablog.herokuapp.com   
 Blog Application
 
 Objective - to create an implementation of a small web service
@@ -20,7 +21,7 @@ I can logout of an account
 While logged in, I can create new blog posts  
 A blog post can consist of images and text  
 I can view list of all blog posts    
-I can view blog posts filtered by blog-tag   
+I can view blog posts filtered by blog-tag 
 I can select between static tags  
 I can view new blog posts upon refreshing the DOM  
 I can post comments on a blog post  

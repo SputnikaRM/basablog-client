@@ -10,7 +10,8 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
-
+user:User;
+returnUser:User;
   private userUrl: string;
   private verifyUrl: string;
   public currentUser: string;
@@ -26,7 +27,8 @@ export class UserService {
   }
 
   public verifyUser(user: User) {
-    return this.http.post<boolean>(this.verifyUrl, user);
+   return this.http.post<User>(this.verifyUrl,user);
+    
   }
 }
 
