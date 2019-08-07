@@ -27,8 +27,11 @@ export class AddblogComponent implements OnInit {
     }
     this.post.userId = Number(this.cookieService.get("name"));
     console.log(this.post.userId);
-    this.blogService.save(this.post).subscribe();
-    window.location.pathname="/";
+    this.blogService.save(this.post).subscribe(() => this.goHome());
+  }
+
+  goHome(): void {
+    window.location.pathname="";
   }
 
 }
