@@ -29,17 +29,23 @@
                          class="form-control" id="imageURL" name="imageURL" placeholder="imageURL"
                          required #imageURL="ngModel">
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
+                  <label for="tag">Tag your post</label>
+                  <input type="text" [(ngModel)]="post.tag1"
+                         class="form-control" id="tag1" name="tag1" placeholder="Tag"
+                         required #tag1="ngModel">
+                </div>
+                 <!-- <div class="form-group">
                   <label for="tag1">Select a tag</label>
                   <select class="form-control" [(ngModel)]="post.tag1"  [ngModelOptions]="{standalone: true}"  id="exampleFormControlSelect1">
-                      <!-- <input [(ngModel)]="post.tag1" [ngModelOptions]="{standalone: true}"> -->
+                      <input [(ngModel)]="post.tag1" [ngModelOptions]="{standalone: true}">
                     <option>Java</option>
                     <option>Funny cuz its true</option>
                     <option>Funny cuz its sad</option>
                     <option>Funny</option>
                     <option>Puppy</option>
                   </select>
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-info">Submit</button>
               </form>
             </div>
