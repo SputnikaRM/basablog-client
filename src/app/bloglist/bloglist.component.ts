@@ -8,6 +8,7 @@ import { stringify } from 'querystring';
 import { Tags } from '../Tags';
 
 
+
 @Component({
   selector: 'app-bloglist',
   templateUrl: './bloglist.component.html',
@@ -19,9 +20,12 @@ export class BloglistComponent implements OnInit {
   posts: Post[] = [];
   tags: Tags[] = [];
   search : string;
+
   constructor(private blogService: BlogService,
     private route: ActivatedRoute
     ) {
+
+      this.getTags();
   }
   ngOnInit() {
     console.log("on init called");
@@ -59,6 +63,10 @@ export class BloglistComponent implements OnInit {
   getTags(): void {
     this.blogService.findAllTags()
     .subscribe(tags => this.tags = tags);
+  }
+
+  submit(tag: string) {
+    this.getBlogPostsByTag(tag);
   }
 }
 
