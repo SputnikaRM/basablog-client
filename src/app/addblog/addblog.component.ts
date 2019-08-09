@@ -20,15 +20,18 @@ export class AddblogComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit(){    
     if (this.cookieService.get("name")==="false") {
       alert("You must log in to post blogs!");
       return window.location.pathname="/user";
     }
     this.post.userId = Number(this.cookieService.get("name"));
     console.log(this.post.userId);
-    this.blogService.save(this.post).subscribe();
-    window.location.pathname="/";
+    this.blogService.save(this.post).subscribe(() => {
+      window.location.pathname="/";
+    }
+    );
+
   }
 
 }
