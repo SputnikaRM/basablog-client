@@ -1,24 +1,31 @@
-
-<div class="card-body" align="center">
-
-<form class="form-horizontal" style="align-content: center">
-  <fieldset>
-    <legend>User Registration</legend>
-    <div class="form-group">
-      <div class="col-md-5">
-        <input id="username" name="username" type="text" [(ngModel)]="user.username" placeholder="Username"
-               class="form-control" required #username="ngModel">
-
-        <input id="emailAddress" name="emailAddress" type="email" placeholder="Enter Email"
-               [(ngModel)]="user.emailAddress" class="form-control" required #emailAddress="ngModel">
-
-        <input id="password" name="password" type="password" placeholder="Password" [(ngModel)]="user.password"
-               class="form-control" #password="ngModel" required>
-
+<body style="background: transparent">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body" style="background: white">
+          <h5 class="card-title text-center">Register</h5>
+          <form>
+            <fieldset>
+              <div class="form-group">
+                <label>Username</label>
+                <input id="username" name="username" type="text" [(ngModel)]="user.username" placeholder="Username" class="form-control" #username = "ngModel" required>
+              </div>
+              <div class="form-label-group">
+                <label>Email Address</label>
+                <input id="emailAddress" name="emailAddress" type="email" placeholder="Enter Email Address" [(ngModel)]="user.emailAddress" class="form-control" #emailAddress = "ngModel" required>
+              </div>
+              <div class="form-label-group">
+                <label>Password</label>
+                <input id="password" name="password" type="password" placeholder="Password" [(ngModel)]="user.password" class="form-control" #password = "ngModel" required>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase btn-info nav-link" routerLink = '' type="submit" (click)="onSubmit()">Submit</button>
+              <hr class="my-4">
+            </fieldset>
+          </form>
+        </div>
       </div>
-      <button type="submit" class="btn btn-info" (click)="onSubmit()">Submit</button>
-
     </div>
-  </fieldset>
-</form>
+  </div>
 </div>
+</body>
