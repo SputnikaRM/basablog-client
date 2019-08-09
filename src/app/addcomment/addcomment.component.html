@@ -2,14 +2,13 @@
         <div class="card" style="width: 40rem; margin:0 auto;">
             <div class="card-header">Add Comment</div>
             <div class="card-body">
-                <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-                   
-                <div class="form-group">
+                <form (ngSubmit)="onSubmit()" #userForm="ngForm">              
+                <!-- <div class="form-group">
                     <label for="Comment">UserId</label>
                     <input type="number" [(ngModel)]="comment.userid" 
                         class="form-control" id="userid" name="name" placeholder="User Id"
                         required #userid="ngModel">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                       <label for="Comment">Comment</label>
                       <input type="text" [(ngModel)]="comment.body" 

@@ -1,4 +1,4 @@
-<div class="alignleft" style="padding-left: 2%; padding-bottom: 1%">
+<!-- <div class="alignleft" style="padding-left: 2%; padding-bottom: 1%">
     <button type="button"  class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       View Posts by Tag
     </button>
@@ -10,11 +10,21 @@
       <button class="dropdown-item" (click)="getBlogPostsByTag('Funny')" type="button">Funny</button>
       <button class="dropdown-item" (click)="getBlogPostsByTag('Puppy')" type="button">Puppy</button>
     </div>
-</div>
+</div> -->
+
+
 <div>
 <form class="alignright" style="padding-right: 3%; padding-bottom: 1%" >
     <input name="search" [(ngModel)] = "search" placeholder="Search">
 </form>
+</div>
+
+
+<div class = "sidenav" style="text-align: left">
+  <p>Filter by tag</p>
+  <div *ngFor="let tag of tags">
+    <span (click)="submit(tag.tag)">{{tag.tag}}</span>
+  </div>
 </div>
 
 <div class="container-fluid" style="text-align:left">

@@ -21,18 +21,19 @@ export class AppComponent implements OnInit {
   }
   userstatuschange(): boolean{
     if(!this.cookservice.check("name")){return false}
-    if(this.cookservice.get("name")==="true"){
+    if(this.cookservice.get("name")!=="false"){
       this.loginstatus=true;
     } 
   }
   
   logout(): void {
     this.cookservice.set("name", "false");
+    window.location.pathname=("/");
   }
 
   getLoggedInStatus(): boolean {
     if (!this.cookservice.check("name")) return false;
-    if (this.cookservice.get("name")==="true") this.loginstatus=true;
+    if (this.cookservice.get("name")!=="false") this.loginstatus=true;
     if (this.cookservice.get("name")==="false") this.loginstatus=false;
     return this.loginstatus;
   }

@@ -7,7 +7,9 @@
     <div style="clear: both;"></div>
             <img class="card-img-top" src="{{post.imageURL || 'https://www.tigers-world.com/wp-content/uploads/Siberian_tiger-1.jpg' }}"  alt="post image">
         <div class="card-body">
+            <span *ngIf="getLoggedInStatus()" >
                 <button class="btn btn-danger" type="button" (click)="deletePost()" >Delete</button>
+            </span>    
             <p class="card-text">{{post.postText}}</p>
         </div>
 </div>

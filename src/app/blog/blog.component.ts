@@ -4,7 +4,7 @@ import {Router, ActivatedRoute } from '@angular/router';
 import { BlogService } from '../blog.service';
 import { CommentService } from '../comment.service';
 import { Comment } from '../comment';
-
+import {CookieService} from "ngx-cookie-service";
 
 
 
@@ -24,13 +24,12 @@ export class BlogComponent implements OnInit {
     private route: ActivatedRoute,
     private blogService: BlogService,
     private commentService: CommentService,
-    private router : Router
+    private cookieService: CookieService
   ) {}
   
   ngOnInit() {
     this.getPost();
     this.getComments();
-    // this.loginStatus = this.appComponent.getLoggedInStatus();
   }
 
   getPost(): void {
@@ -48,6 +47,10 @@ export class BlogComponent implements OnInit {
     this.blogService.deleteBlogPost(id).subscribe(text => console.log("text"));
     //emmit event 'post/{id}/deleted'
     window.location.pathname="/";
+  }
+
+  getLoggedInStatus(): boolean {
+    return (this.cookieService.get("name")!=="false");
   }
 
 }
