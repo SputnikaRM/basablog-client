@@ -19,8 +19,9 @@
 </form>
 </div>
 
-<h5>Click to filter by tag</h5>
-<div class = "container-fluid" style="text-align: left">
+
+<div class = "sidenav" style="text-align: left">
+  <p>Filter by tag</p>
   <div *ngFor="let tag of tags">
     <span (click)="submit(tag.tag)">{{tag.tag}}</span>
   </div>
