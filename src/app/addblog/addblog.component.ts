@@ -21,8 +21,10 @@ export class AddblogComponent implements OnInit {
   }
 
   onSubmit(){
-    this.blogService.save(this.post).subscribe();
-    window.location.pathname="/";
+    this.blogService.save(this.post).subscribe(data => {
+      window.location.pathname="/";
+    });
+    
   }
 
   // gotoUserList(){
