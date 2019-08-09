@@ -12,7 +12,7 @@
                 
                 <div class="form-group">
                   <label for="postText">Post</label>
-                  <input type="text" [(ngModel)]="post.postText" 
+                  <input type="textarea" [(ngModel)]="post.postText" 
                     class="form-control" id="postText" name="name" placeholder="PostText"
                     required #postText="ngModel">
                 </div>
@@ -22,15 +22,11 @@
                          class="form-control" id="imageURL" name="imageURL" placeholder="imageURL"
                          required #imageURL="ngModel">
                 </div>
-                 <div class="form-group">
-                  <label for="tag1">Select a tag</label>
-                  <select class="form-control" [(ngModel)]="post.tag1"  [ngModelOptions]="{standalone: true}"  id="exampleFormControlSelect1">
-                    <option>Java</option>
-                    <option>Funny cuz its true</option>
-                    <option>Funny cuz its sad</option>
-                    <option>Funny</option>
-                    <option>Puppy</option>
-                  </select>
+                <div class="form-group">
+                  <label for="tag1">Tag your post</label>
+                  <input type="text" [(ngModel)]="post.tag1"
+                         class="form-control" id="tag1" name="tag1" placeholder="Tag"
+                         required #tag1="ngModel">
                 </div>
                 <button type="submit" class="btn btn-info">Submit</button>
               </form>

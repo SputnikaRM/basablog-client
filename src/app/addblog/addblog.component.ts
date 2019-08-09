@@ -20,7 +20,7 @@ export class AddblogComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit(){    
     if (this.cookieService.get("name")==="false") {
       alert("You must log in to post blogs!");
       return window.location.pathname="/user";
@@ -32,6 +32,11 @@ export class AddblogComponent implements OnInit {
 
   goHome(): void {
     window.location.pathname="";
+    this.blogService.save(this.post).subscribe(() => {
+      window.location.pathname="/";
+    }
+    );
+
   }
 
 }
