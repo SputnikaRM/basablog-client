@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Post} from 'src/app/post';
 import { environment } from '../environments/environment';
-
+import {Tags} from 'src/app/Tags';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +12,7 @@ export class BlogService {
   private bloggeturl =  environment.apiUrl + "blogPost/all";
   private postgeturl = environment.apiUrl + "blogPost/";
   private postdeleteurl = environment.apiUrl + "blogPost/";
+  private tagurl=environment.apiUrl + "tags";
 
   
   constructor(private http:HttpClient) {}
@@ -38,5 +39,8 @@ export class BlogService {
 
   public deleteBlogPost(id : number): Observable<string> {
     return this.http.delete<string>(this.postdeleteurl + id);
+  }
+  public findAllTags(): Observable<Tags[]>{
+    return this.http.get<Tags[]>(this.tagurl);
   }
 }

@@ -35,8 +35,10 @@ export class UserComponent implements OnInit {
       this.returnUser = data;
       console.log(this.returnUser);
       if(this.returnUser!==null){
-        this.cookieService.set("name", "true");
+        console.log(this.returnUser.id);
+        this.cookieService.set("name", String(this.returnUser.id));
       } else {
+        this.cookieService.set("name", "false");
         alert("Invalid user and/or password");
         this.router.navigate(['user']);
       }
@@ -45,6 +47,6 @@ export class UserComponent implements OnInit {
   }
 
   verify() {
-    return this.router.navigate(['']);
+    window.location.pathname=("/");
   }
 }

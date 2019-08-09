@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../blog.service';
 import {Post} from 'src/app/post';
-import { ActivatedRoute, Router } from '@angular/router'; 
-import { HttpClient } from '@angular/common/http';
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-addblog',
@@ -11,9 +10,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddblogComponent implements OnInit {
   post: Post;
-  // http: HttpClient;
 
-  constructor(private route:ActivatedRoute, private blogService: BlogService,private router: Router) {
+  constructor(
+    private blogService: BlogService,
+    private cookieService: CookieService) {
       this.post = new Post();
    }
 
@@ -21,12 +21,14 @@ export class AddblogComponent implements OnInit {
   }
 
   onSubmit(){
+    if (this.cookieService.get("name")==="false") {
+      alert("You must log in to post blogs!");
+      return window.location.pathname="/user";
+    }
+    this.post.userId = Number(this.cookieService.get("name"));
+    console.log(this.post.userId);
     this.blogService.save(this.post).subscribe();
     window.location.pathname="/";
   }
-
-  // gotoUserList(){
-  //   this.router.navigate(['blogPost/add'])
-  // }
 
 }
