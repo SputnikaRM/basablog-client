@@ -19,11 +19,8 @@ export class AdduserComponent implements OnInit {
   }
 
   onSubmit() {
-    return this.userService.save(this.user).subscribe(result => this.gotoUserList());
-  }
-
-  gotoUserList() {
-    return this.router.navigate(['users/add']);
+    this.userService.save(this.user).subscribe();
+    window.location.pathname='/user';
   }
 }
 

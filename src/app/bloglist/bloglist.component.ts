@@ -5,6 +5,8 @@ import {Comment} from 'src/app/comment';
 import { FilterPipe } from '../filter.pipe';
 import { ActivatedRoute } from '@angular/router';
 import { stringify } from 'querystring';
+import { Tags } from '../Tags';
+
 
 
 @Component({
@@ -16,10 +18,14 @@ import { stringify } from 'querystring';
 export class BloglistComponent implements OnInit {
   filter:FilterPipe;
   posts: Post[] = [];
+  tags: Tags[] = [];
   search : string;
+
   constructor(private blogService: BlogService,
     private route: ActivatedRoute
     ) {
+
+      this.getTags();
   }
   ngOnInit() {
     console.log("on init called");
@@ -52,6 +58,15 @@ export class BloglistComponent implements OnInit {
     if (sentences.length < 1) return post.postText;
     return sentences[0];
     
+  }
+
+  getTags(): void {
+    this.blogService.findAllTags()
+    .subscribe(tags => this.tags = tags);
+  }
+
+  submit(tag: string) {
+    this.getBlogPostsByTag(tag);
   }
 }
 
