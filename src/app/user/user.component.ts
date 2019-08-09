@@ -31,18 +31,17 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.verifyUser(this.user).subscribe(data => {this.returnUser = data;
+    this.userService.verifyUser(this.user).subscribe(data => {
+      this.returnUser = data;
       console.log(this.returnUser);
       if(this.returnUser!==null){
-      this.cookieService.set("name", "true");
-      };
-    }
-      );
+        this.cookieService.set("name", "true");
+      } else {
+        alert("Invalid user and/or password");
+        this.router.navigate(['user']);
+      }
+    });
     console.log(this.returnUser);
-    
-    
-    
-    
   }
 
   verify() {
