@@ -12,7 +12,7 @@
                 
                 <div class="form-group">
                   <label for="postText">Post</label>
-                  <input type="text" [(ngModel)]="post.postText" 
+                  <input type="textarea" [(ngModel)]="post.postText" 
                     class="form-control" id="postText" name="name" placeholder="PostText"
                     required #postText="ngModel">
                 </div>
@@ -24,9 +24,9 @@
                 </div>
                 <div class="form-group">
                   <label for="tag">Tag your post</label>
-                  <input type="text" [(ngModel)]="post.tag1"
-                         class="form-control" id="tag1" name="tag1" placeholder="Tag"
-                         required #tag1="ngModel">
+                  <input type="text" [(ngModel)]="post.tag"
+                         class="form-control" id="tag" name="tag" placeholder="Tag"
+                         required #tag="ngModel">
                 </div>
                 <button type="submit" class="btn btn-info">Submit</button>
               </form>
