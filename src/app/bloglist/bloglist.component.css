@@ -37,7 +37,7 @@ input {
     z-index: 1;
     top: 200px;
     left: 10px;
-    background: #eee;
+    background: rgb(255, 255, 255);
     overflow-x: hidden;
     padding: 8px 0;
   }
@@ -46,12 +46,12 @@ input {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
-    color: #2196F3;
+    color: #0B056B;
     display: block;
   }
   
   .sidenav a:hover {
-    color: #064579;
+    color: #023661;
   }
 
   .main {
