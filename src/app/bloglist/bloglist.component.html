@@ -1,37 +1,19 @@
-<!-- <div class="alignleft" style="padding-left: 2%; padding-bottom: 1%">
-    <button type="button"  class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      View Posts by Tag
-    </button>
-    <div class="sticky-top"></div>
-    <div class="dropdown-menu dropdown-menu-right">
-      <button class="dropdown-item" (click)="getBlogPostsByTag('Java')" type="button">Java</button>
-      <button class="dropdown-item" (click)="getBlogPostsByTag('Funny cuz its true')" type="button">Funny cuz its true</button>
-      <button class="dropdown-item" (click)="getBlogPostsByTag('Funny cuz its sad')" type="button">Funny cuz its sad</button>
-      <button class="dropdown-item" (click)="getBlogPostsByTag('Funny')" type="button">Funny</button>
-      <button class="dropdown-item" (click)="getBlogPostsByTag('Puppy')" type="button">Puppy</button>
-    </div>
-</div> -->
-
-
 <div>
-<form class="alignright" style="padding-right: 3%; padding-bottom: 1%" >
+<form class="alignright" style="padding-right: 1%; padding-bottom: 0%; column-count: 1" >
     <input name="search" [(ngModel)] = "search" placeholder="Search">
 </form>
 </div>
-
-
-<div class = "sidenav" style="text-align: left">
-  <p>Filter by tag</p>
-  <div *ngFor="let tag of tags">
-    <span (click)="submit(tag.tag)">{{tag.tag}}</span>
+<div class = "sidenav, alignleft" style="text-align: left; width: 10%;padding-left: 1%; border: 2px black;">
+  <p style="cursor: pointer">Filter By Tag:</p>
+  <div *ngFor="let tag of tags" style="cursor: pointer">
+    <span (click)="submit(tag.tag)">{{tag.tag}}<hr /></span>
   </div>
 </div>
-
-<div class="container-fluid" style="text-align:left">
+<div class="align-items-right" style="text-align:left; width: 70%; column-count: 1">
       <div *ngFor="let post of posts | filter : search" >
-      
-        <div class="card" style="width: 40rem; margin:0 auto;">
-            <div class="card-header">
+
+        <div class="card" style="width: 100%; margin: 3%">
+            <div class="card-header" style="align-items: center;">
               <a routerLink="/post/{{post.id}}">
               <span class="alignleft">{{post.title}}</span>
               </a>
@@ -44,10 +26,8 @@
             </div>
              <div class="card-footer text-muted">2 days ago</div>
           </div>
-   
+
       </div>
       <br>
     </div>
     </div>
-
-
