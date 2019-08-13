@@ -15,11 +15,6 @@
           <a  class="nav-link" routerLink = 'addblog'>Add Blog</a>
         </div>
         </li>
-        <div *ngIf="!getLoggedInStatus()">
-        <li class="nav-item">
-          <a class="nav-link" routerLink= 'adduser'>Register</a>
-        </li>
-        </div>
       </ul>
          
     </div>
@@ -34,11 +29,10 @@
           <span class="btn-group" >
               <button class="btn btn-info" type="button" routerLink='adduser'>Register</button>
             </span>
-          </div> 
-
-      
+          </div>
   </nav>
 </div>
+<hr />
 
 <router-outlet></router-outlet>
 
